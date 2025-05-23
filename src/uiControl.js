@@ -1,25 +1,23 @@
-// function renderScreen() {
-//   const body = document.querySelector("body");
-//   const menuItems = document.querySelector(".menu-items");
+export default function createDropdown({
+  containerElementCSSSelector = "",
+  ItemDropdown = ["Option 1"],
+  expandEvent = "click",
+} = {}) {
+  const containerElement = document.querySelector(containerElementCSSSelector);
 
-//   createMenu(body, menuItems);
-// }
+  const dropdown = document.createElement("div");
+  dropdown.classList.add("dropdown");
+  dropdown.textContent = "Dropdown";
+  const dropdownContent = document.createElement("div");
+  dropdownContent.classList.add("dropdown-content");
 
-function createMenu(parentElement, menuItems) {
-  const menuContainer = document.createElement("div");
-  menuContainer.classList.add("menu-container");
-  const txtMenuContainer = document.createElement("div");
-  txtMenuContainer.classList.add("txt-menu-container");
-  txtMenuContainer.textContent = "Menu";
+  ItemDropdown.forEach((items) => {
+    const dropdownItem = document.createElement("div");
+    dropdownItem.textContent = `${items}`;
 
-  menuContainer.addEventListener("click", () => {
-    console.log("on click");
-    menuItems.style.display = "flex";
+    dropdownContent.appendChild(dropdownItem);
   });
 
-  menuContainer.appendChild(txtMenuContainer);
-  menuContainer.appendChild(menuItems);
-  parentElement.appendChild(menuContainer);
+  containerElement.appendChild(dropdown);
+  containerElement.appendChild(dropdownContent);
 }
-
-export { createMenu };

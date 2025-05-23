@@ -1,7 +1,6 @@
 import "./styles.css";
-import { createMenu } from "./uiControl";
+import createDropdown from "./uiControl";
 
-const body = document.querySelector("body");
-const menuItems = document.querySelector(".menu-items");
-
-createMenu(body, menuItems);
+createDropdown({
+  containerElementCSSSelector: ".container-dropdown",
+});

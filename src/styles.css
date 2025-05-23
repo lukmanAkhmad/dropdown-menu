@@ -1,8 +1,10 @@
-.menu-items {
+* {
+  margin: 0;
+  padding: 0;
+}
+.dropdown-content {
   display: none;
-  flex-direction: column;
 }
 .visible {
   display: flex;
-  flex-direction: column;
 }
