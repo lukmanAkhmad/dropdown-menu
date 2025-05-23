@@ -11,6 +11,12 @@ export default function createDropdown({
   const dropdownContent = document.createElement("div");
   dropdownContent.classList.add("dropdown-content");
 
+  const showDropdownContent = () => dropdownContent.classList.add("visible");
+  const hideDropdownContent = () => dropdownContent.classList.remove("visible");
+
+  dropdown.addEventListener(expandEvent, showDropdownContent);
+  
+
   ItemDropdown.forEach((items) => {
     const dropdownItem = document.createElement("div");
     dropdownItem.textContent = `${items}`;
