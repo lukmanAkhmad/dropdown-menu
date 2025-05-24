@@ -14,8 +14,13 @@ export default function createDropdown({
   const showDropdownContent = () => dropdownContent.classList.add("visible");
   const hideDropdownContent = () => dropdownContent.classList.remove("visible");
 
-  dropdown.addEventListener(expandEvent, showDropdownContent);
-  
+  dropdown.addEventListener(expandEvent, () => {
+    if (dropdownContent.classList.contains("visible")) {
+      hideDropdownContent();
+    } else {
+      showDropdownContent();
+    }
+  });
 
   ItemDropdown.forEach((items) => {
     const dropdownItem = document.createElement("div");
