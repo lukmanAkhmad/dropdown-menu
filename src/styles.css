@@ -2,9 +2,11 @@
   margin: 0;
   padding: 0;
 }
+
 .dropdown-content {
   display: none;
 }
 .visible {
   display: flex;
+  flex-direction: column;
 }
