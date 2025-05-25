@@ -9,23 +9,27 @@ export default function createDropdown({
 
   const dropdown = document.createElement("div");
   dropdown.classList.add("dropdown");
+
   const sectionBtn = document.createElement("section");
   sectionBtn.classList.add("section-btn");
+  
   const btnDropdown = document.createElement("button");
   btnDropdown.classList.add("btn-dropdown");
   btnDropdown.textContent = "Dropdown";
+  
   const iconDropdown = document.createElement("img");
   iconDropdown.classList.add("icon-dropdown");
   iconDropdown.src = dropdownIcon;
   iconDropdown.alt = "Dropdown icon";
   iconDropdown.title = "Dropdown icon";
+  
   const dropdownContent = document.createElement("ul");
   dropdownContent.classList.add("dropdown-content");
 
   const showDropdownContent = () => dropdownContent.classList.toggle("visible");
   const hideDropdownContent = () => dropdownContent.classList.remove("visible");
 
-  btnDropdown.addEventListener(expandEvent, () => {
+  sectionBtn.addEventListener(expandEvent, () => {
     if (dropdownContent.classList.contains("visible")) {
       hideDropdownContent();
     } else {
