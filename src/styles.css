@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
 }
+.section-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 .dropdown-content {
   display: none;
