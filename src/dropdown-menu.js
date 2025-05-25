@@ -12,17 +12,17 @@ export default function createDropdown({
 
   const sectionBtn = document.createElement("section");
   sectionBtn.classList.add("section-btn");
-  
+
   const btnDropdown = document.createElement("button");
   btnDropdown.classList.add("btn-dropdown");
-  btnDropdown.textContent = "Dropdown";
-  
+  btnDropdown.textContent = `Dropdown ${expandEvent}`;
+
   const iconDropdown = document.createElement("img");
   iconDropdown.classList.add("icon-dropdown");
   iconDropdown.src = dropdownIcon;
   iconDropdown.alt = "Dropdown icon";
   iconDropdown.title = "Dropdown icon";
-  
+
   const dropdownContent = document.createElement("ul");
   dropdownContent.classList.add("dropdown-content");
 
@@ -39,6 +39,7 @@ export default function createDropdown({
 
   itemDropdown.forEach((items) => {
     const dropdownItem = document.createElement("li");
+    dropdownItem.classList.add("dropdown-item");
     dropdownItem.textContent = `${items}`;
 
     dropdownContent.appendChild(dropdownItem);
