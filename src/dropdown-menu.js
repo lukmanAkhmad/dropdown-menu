@@ -26,16 +26,20 @@ export default function createDropdown({
   const dropdownContent = document.createElement("ul");
   dropdownContent.classList.add("dropdown-content");
 
-  const showDropdownContent = () => dropdownContent.classList.toggle("visible");
-  const hideDropdownContent = () => dropdownContent.classList.remove("visible");
+  const actionExpandEvent =
+    expandEvent === "hover" ? "mouseenter" : "mousedown";
 
-  sectionBtn.addEventListener(expandEvent, () => {
-    if (dropdownContent.classList.contains("visible")) {
-      hideDropdownContent();
-    } else {
-      showDropdownContent();
-    }
-  });
+  const toggleDropdownContent = () => {
+    dropdownContent.classList.toggle("visible");
+  };
+  const hideDropdownContent = () => {
+    dropdownContent.classList.remove("visible");
+  };
+
+  sectionBtn.addEventListener(actionExpandEvent, toggleDropdownContent);
+  if (actionExpandEvent !== "mousedown") {
+    dropdownContent.addEventListener("mouseleave", hideDropdownContent);
+  }
 
   itemDropdown.forEach((items) => {
     const dropdownItem = document.createElement("li");
