@@ -5,6 +5,13 @@ export default function createDropdown({
   itemDropdown = ["Option 1"],
   expandEvent = "click",
 } = {}) {
+  const VALID_EXPAND_EVENTS = ["hover", "click", "mousedown"];
+  if (!expandEvent || !VALID_EXPAND_EVENTS.includes(expandEvent)) {
+    return console.error(
+      "Please use a valid event type for expanding the dropdown. Valid events are 'hover', 'click', 'mousedown'.",
+    );
+  }
+
   const containerElement = document.querySelector(containerElementCSSSelector);
 
   const dropdown = document.createElement("div");
